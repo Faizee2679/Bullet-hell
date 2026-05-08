@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://mixjr50dd6i0"]
+
+[ext_resource type="Texture2D" uid="uid://tydr114cc268" path="res://Shoot`em Up/SpaceShip_Boss-0001.png" id="1_7k104"]
+[ext_resource type="Script" uid="uid://mp486k6hcn7l" path="res://enemy_boss.gd" id="1_m631e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gyqm"]
+atlas = ExtResource("1_7k104")
+region = Rect2(0, 147, 128, 134)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi2p4"]
+atlas = ExtResource("1_7k104")
+region = Rect2(128, 147, 128, 134)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iifgy"]
+atlas = ExtResource("1_7k104")
+region = Rect2(0, 281, 128, 134)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epg4t"]
+atlas = ExtResource("1_7k104")
+region = Rect2(128, 281, 128, 134)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3yqyl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gyqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi2p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iifgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epg4t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy Boss" type="Node2D"]
+script = ExtResource("1_m631e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 5)
+sprite_frames = SubResource("SpriteFrames_3yqyl")

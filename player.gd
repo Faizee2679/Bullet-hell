@@ -1,0 +1,38 @@
+extends Area2D
+
+@export var max_speed: float = 450.0       
+@export var acceleration: float = 1.0
+@export var friction: float = 0.06
+@onready var sprite: AnimatedSprite2D = $SpaceShipsPlayer0001
+
+var velocity: Vector2 = Vector2.ZERO
+var screen_size: Vector2
+
+func _ready():
+	screen_size = get_viewport_rect().size
+
+func _process(delta):
+	var direction = Vector2.ZERO
+
+	if Input.is_action_pressed("left"):
+		direction.x = -1
+		rotation = deg_to_rad(-90)
+	if Input.is_action_pressed("right"):
+		direction.x = 1
+		rotation = deg_to_rad(90)
+	if Input.is_action_pressed("up"):
+		rotation = 0
+		direction.y = -1
+		sprite.flip_v = false
+	if Input.is_action_pressed("down"):
+		rotation = 0
+		direction.y = 1
+		sprite.flip_v = true
+
+	if direction != Vector2.ZERO:
+		direction = direction.normalized()
+		velocity = velocity.lerp(direction * max_speed, acceleration)
+	else:
+		velocity = velocity.lerp(Vector2.ZERO, friction)
+
+	position += velocity * delta
