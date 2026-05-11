@@ -15,11 +15,13 @@ func _process(delta):
 	var direction = Vector2.ZERO
 
 	if Input.is_action_pressed("left"):
+		sprite.flip_v = false
 		direction.x = -1
-		rotation = deg_to_rad(-90)
-	if Input.is_action_pressed("right"):
-		direction.x = 1
 		rotation = deg_to_rad(90)
+	if Input.is_action_pressed("right"):
+		sprite.flip_v = false
+		direction.x = 1
+		rotation = deg_to_rad(-90)
 	if Input.is_action_pressed("up"):
 		rotation = 0
 		direction.y = -1
