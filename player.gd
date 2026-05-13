@@ -20,24 +20,27 @@ func _process(delta):
 		sprite.flip_v = false
 		direction.x = -1
 		rotation = deg_to_rad(-90)
-		angle = -90asd
+		angle = 180
 	if Input.is_action_pressed("right"):
 		sprite.flip_v = false
 		direction.x = 1
 		rotation = deg_to_rad(90)
-		angle = 90
+		angle = 0
 	if Input.is_action_pressed("up"):
 		rotation = 0
 		direction.y = -1
 		sprite.flip_v = false
+		angle = -90
 	if Input.is_action_pressed("down"):
 		rotation = 0
 		direction.y = 1
 		sprite.flip_v = true
+		angle = 90
 	if Input.is_action_pressed("shoot"):
 		var clone = OGbullet.instantiate()
 		clone.rotation = deg_to_rad(angle)
-		add_child(clone)
+		clone.position = position
+		get_tree().current_scene.add_child(clone)
 		
 
 	if direction != Vector2.ZERO:
