@@ -14,4 +14,4 @@ texture = ExtResource("1_3mqji")
 [node name="Player" parent="." instance=ExtResource("2_x4av3")]
 
 [node name="Enemy Boss" parent="." instance=ExtResource("3_uxrcv")]
-position = Vector2(472, -4)
+position = Vector2(579, 78)

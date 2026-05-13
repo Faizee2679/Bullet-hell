@@ -100,7 +100,7 @@ animations = [{
 radius = 27.45906
 
 [node name="enemy" type="Node2D"]
-rotation = 1.5707964
+rotation = 3.1415927
 script = ExtResource("1_4gyqm")
 projectileOG = ExtResource("2_qi2p4")
 

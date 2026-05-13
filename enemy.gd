@@ -13,5 +13,8 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	var clone = projectileOG.instantiate()
-	add_child(clone)
+	for number in range(8):
+		var angle = number * 360 / 8
+		var clone = projectileOG.instantiate()
+		clone.rotation = deg_to_rad(angle)
+		add_child(clone)

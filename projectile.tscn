@@ -44,13 +44,14 @@ radius = 6.0
 height = 22.0
 
 [node name="Area2D" type="Area2D"]
-rotation = 1.5707964
 script = ExtResource("1_qxf0c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5707964
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_dac07")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(-3, 0)
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_0c7x6")

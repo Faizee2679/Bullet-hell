@@ -5,7 +5,7 @@ var minion = preload("res://enemy.tscn")
 func _ready() -> void:
 	for number in range(6):
 		var clone = minion.instantiate()
-		clone.position = Vector2(randi_range(-100, 100), position.y)
+		clone.position = Vector2(randi_range(-100, 100), randi_range(0, 200))
 		add_child(clone)
 
 
