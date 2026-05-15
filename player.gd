@@ -15,30 +15,21 @@ func _ready():
 
 func _process(delta):
 	var direction = Vector2.ZERO
-
+	var mouse = get_local_mouse_position()
+	var directionToMouse = mouse - position
+	look_at(get_global_mouse_position())
+	
 	if Input.is_action_pressed("left"):
-		sprite.flip_v = false
 		direction.x = -1
-		rotation = deg_to_rad(-90)
-		angle = 180
 	if Input.is_action_pressed("right"):
-		sprite.flip_v = false
 		direction.x = 1
-		rotation = deg_to_rad(90)
-		angle = 0
 	if Input.is_action_pressed("up"):
-		rotation = 0
 		direction.y = -1
-		sprite.flip_v = false
-		angle = -90
 	if Input.is_action_pressed("down"):
-		rotation = 0
 		direction.y = 1
-		sprite.flip_v = true
-		angle = 90
 	if Input.is_action_pressed("shoot"):
 		var clone = OGbullet.instantiate()
-		clone.rotation = deg_to_rad(angle)
+		clone.rotation = rotation
 		clone.position = position
 		get_tree().current_scene.add_child(clone)
 		

@@ -104,8 +104,9 @@ collision_mask = 0
 script = ExtResource("1_kpjcp")
 
 [node name="SpaceShipsPlayer0001" type="AnimatedSprite2D" parent="."]
+rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_jatw7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 10)
+position = Vector2(-10, -3)
 shape = SubResource("CircleShape2D_kpjcp")

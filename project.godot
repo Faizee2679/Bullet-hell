@@ -53,3 +53,4 @@ shoot={
 2d_physics/layer_2="enemy bullets"
 2d_physics/layer_3="player"
 2d_physics/layer_4="killzone"
+2d_physics/layer_5="enemy"

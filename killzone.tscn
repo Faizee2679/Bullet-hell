@@ -27,6 +27,7 @@ shape = SubResource("WorldBoundaryShape2D_n3uws")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
 position = Vector2(579, -50)
+rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_n3uws")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
