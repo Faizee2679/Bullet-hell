@@ -3,7 +3,7 @@ extends Node2D
 @export var projectileOG:PackedScene
 @export var explosionOG:PackedScene
 
-var health = 300
+var health = 25
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_node("Timer").start()

@@ -23,7 +23,7 @@ animations = [{
 }]
 
 [node name="Area2D" type="Area2D"]
-collision_mask = 16
+collision_mask = 18
 script = ExtResource("1_4g78s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -31,6 +31,8 @@ position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_0c7x6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, -2)
+position = Vector2(0, -10)
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_d88f8")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

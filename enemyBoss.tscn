@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://mixjr50dd6i0"]
+[gd_scene load_steps=9 format=3 uid="uid://mixjr50dd6i0"]
 
 [ext_resource type="Texture2D" uid="uid://tydr114cc268" path="res://Shoot`em Up/SpaceShip_Boss-0001.png" id="1_7k104"]
 [ext_resource type="Script" uid="uid://mp486k6hcn7l" path="res://enemy_boss.gd" id="1_m631e"]
@@ -39,7 +39,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Enemy Boss" type="Node2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_m631e"]
+
+[node name="Enemy Boss" type="Area2D"]
 script = ExtResource("1_m631e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -47,3 +49,6 @@ script = ExtResource("1_m631e")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 5)
 sprite_frames = SubResource("SpriteFrames_3yqyl")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m631e")

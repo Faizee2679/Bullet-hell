@@ -1,7 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6n113edr6yuq"]
+[gd_scene load_steps=19 format=3 uid="uid://b6n113edr6yuq"]
 
 [ext_resource type="Script" uid="uid://vr7wj3xn1hvg" path="res://player.gd" id="1_kpjcp"]
+[ext_resource type="PackedScene" uid="uid://d37pe5tjcgo6g" path="res://explosion.tscn" id="2_e80uo"]
 [ext_resource type="Texture2D" uid="uid://b5gwwiylu3jb5" path="res://Shoot`em Up/SpaceShips_Player-0001.png" id="2_kne1u"]
+[ext_resource type="PackedScene" uid="uid://bjpisw1wurhm" path="res://shield.tscn" id="4_e80uo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e80uo"]
 atlas = ExtResource("2_kne1u")
@@ -100,8 +102,9 @@ radius = 8.0
 
 [node name="Player" type="Area2D"]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_kpjcp")
+explosionOG = ExtResource("2_e80uo")
 
 [node name="SpaceShipsPlayer0001" type="AnimatedSprite2D" parent="."]
 rotation = 1.5707964
@@ -110,3 +113,8 @@ sprite_frames = SubResource("SpriteFrames_jatw7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-10, -3)
 shape = SubResource("CircleShape2D_kpjcp")
+
+[node name="shield" parent="." instance=ExtResource("4_e80uo")]
+position = Vector2(-14, -5)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdk7463oqdwna"]
+
+[ext_resource type="Texture2D" uid="uid://drpf77a1eg4lv" path="res://Shoot`em Up/Code_Generated_Image.png" id="1_d5l70"]
+[ext_resource type="Script" uid="uid://d2ahbydo4h5jo" path="res://shield_cooler.gd" id="1_n6cap"]
+[ext_resource type="Texture2D" uid="uid://xo4lpkkehbsa" path="res://Shoot`em Up/Code_Generated_Image (1).png" id="2_n6cap"]
+
+[node name="ShieldCooler" type="Node2D"]
+script = ExtResource("1_n6cap")
+
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
+offset_right = 200.0
+offset_bottom = 40.0
+max_value = 5.0
+step = 0.01
+value = 5.0
+fill_mode = 1
+texture_under = ExtResource("1_d5l70")
+texture_progress = ExtResource("2_n6cap")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

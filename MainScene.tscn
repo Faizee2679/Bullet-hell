@@ -1,13 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcl3mghkd3afp"]
+[gd_scene load_steps=13 format=3 uid="uid://bcl3mghkd3afp"]
 
 [ext_resource type="Texture2D" uid="uid://bvrmwkdid0qlb" path="res://Shoot`em Up/Background_Full-0001.png" id="1_3mqji"]
+[ext_resource type="Script" uid="uid://cq88mjg23ref7" path="res://main_scene.gd" id="1_hbc2u"]
+[ext_resource type="PackedScene" uid="uid://bi4vcqs5pohpt" path="res://enemy.tscn" id="2_8xkvn"]
 [ext_resource type="PackedScene" uid="uid://b6n113edr6yuq" path="res://Player.tscn" id="2_x4av3"]
 [ext_resource type="PackedScene" uid="uid://mixjr50dd6i0" path="res://enemyBoss.tscn" id="3_uxrcv"]
 [ext_resource type="PackedScene" uid="uid://babn8lrwv1qrp" path="res://player bullets.tscn" id="4_uxrcv"]
 [ext_resource type="PackedScene" uid="uid://cyv1mgq2dycv0" path="res://killzone.tscn" id="5_rf2cd"]
-[ext_resource type="PackedScene" uid="uid://bi4vcqs5pohpt" path="res://enemy.tscn" id="6_a814b"]
+[ext_resource type="PackedScene" uid="uid://ctl17m1fylwse" path="res://health.tscn" id="6_a814b"]
+[ext_resource type="PackedScene" uid="uid://du2syty7ykay" path="res://level_1.tscn" id="7_5crlr"]
+[ext_resource type="PackedScene" uid="uid://c0ycf211v0uwn" path="res://level_2.tscn" id="10_p5x2j"]
+[ext_resource type="PackedScene" uid="uid://w1b8b2g2t0wm" path="res://level_3.tscn" id="11_p5x2j"]
+[ext_resource type="PackedScene" uid="uid://bdk7463oqdwna" path="res://shield_cooler.tscn" id="12_yvb8b"]
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_hbc2u")
+enemy = ExtResource("2_8xkvn")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(577, 323.49997)
@@ -18,9 +26,50 @@ texture = ExtResource("1_3mqji")
 
 [node name="Enemy Boss" parent="." instance=ExtResource("3_uxrcv")]
 position = Vector2(579, 78)
+script = null
 
 [node name="Area2D" parent="." instance=ExtResource("4_uxrcv")]
 
 [node name="Killzone" parent="." instance=ExtResource("5_rf2cd")]
 
-[node name="enemy" parent="." instance=ExtResource("6_a814b")]
+[node name="Health" parent="." instance=ExtResource("6_a814b")]
+position = Vector2(37, 28)
+
+[node name="Health2" parent="." instance=ExtResource("6_a814b")]
+position = Vector2(85, 28)
+
+[node name="Health3" parent="." instance=ExtResource("6_a814b")]
+position = Vector2(129, 28)
+
+[node name="Level1" parent="." instance=ExtResource("7_5crlr")]
+position = Vector2(48, 111)
+
+[node name="Level 2" parent="." instance=ExtResource("10_p5x2j")]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Label1" type="Label" parent="."]
+offset_left = 413.0
+offset_top = 215.0
+offset_right = 869.0
+offset_bottom = 425.0
+theme_override_font_sizes/font_size = 38
+text = "Good job Soldier!
+Now on to Level 2"
+
+[node name="Level3" parent="." instance=ExtResource("11_p5x2j")]
+position = Vector2(-53, -16)
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 413.0
+offset_top = 216.0
+offset_right = 1111.0
+offset_bottom = 426.0
+theme_override_font_sizes/font_size = 38
+text = "Good job Soldier!
+Now I see you are 
+worthy of my shield.
+The pawawawawaw shield!"
+
+[node name="ShieldCooler" parent="." instance=ExtResource("12_yvb8b")]
+position = Vector2(26, 580)

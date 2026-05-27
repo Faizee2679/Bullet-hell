@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjpisw1wurhm"]
+
+[ext_resource type="Script" uid="uid://da258ho8ji0f5" path="res://shield.gd" id="1_ffst0"]
+[ext_resource type="Texture2D" uid="uid://oshebdv8euon" path="res://Shoot`em Up/Barrier-0001.png" id="1_vuocu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffst0"]
+atlas = ExtResource("1_vuocu")
+region = Rect2(0, 0, 88, 88)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dmnlx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffst0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0vxx4"]
+radius = 29.966648
+
+[node name="shield" type="Area2D"]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_ffst0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dmnlx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 6)
+shape = SubResource("CircleShape2D_0vxx4")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
