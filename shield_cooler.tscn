@@ -12,12 +12,10 @@ offset_right = 200.0
 offset_bottom = 40.0
 max_value = 5.0
 step = 0.01
-value = 5.0
 fill_mode = 1
 texture_under = ExtResource("1_d5l70")
 texture_progress = ExtResource("2_n6cap")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

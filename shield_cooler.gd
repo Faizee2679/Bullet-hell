@@ -1,18 +1,19 @@
 extends Node2D
 
-@onready var timer = $Timer
 @onready var progress_bar = $ProgressBar
+var direction = true
 
 func _ready():
-	timer.start() 
+	progress_bar.value = 0
+	get_node("Timer").start()
 
 func _process(_delta):
-	if timer.time_left > 0:
-		progress_bar.value = timer.time_left
-		print("Timer Left: ", timer.time_left, " | Bar Value: ", progress_bar.value)
-	else:
-		progress_bar.value = timer.wait_time
-
+	if progress_bar.value == 0:
+		direction = true
+			
 
 func _on_timer_timeout() -> void:
-	timer.stop()
+	if progress_bar.value != 5 and direction == true:
+		progress_bar.value += 1
+	elif progress_bar.value >0 and direction == false:
+		progress_bar.value -= 1

@@ -6,6 +6,8 @@ extends Node2D
 @onready var level3:Node2D = get_node('Level3')
 @onready var playerShield:Area2D = get_node("Player/shield")
 @onready var shieldCooler:Node2D = get_node("ShieldCooler")
+@onready var shieldProgress:TextureProgressBar = get_node("ShieldCooler/ProgressBar")
+@onready var shieldTimer:Timer = get_node("ShieldCooler/Timer")
 
 var currentLevel = "level1"
 # Called when the node enters the scene tree for the first time.
@@ -17,6 +19,7 @@ func _ready() -> void:
 	level3.hide()
 	shieldCooler.hide()
 	
+	shieldCooler.process_mode = Node.PROCESS_MODE_DISABLED
 	level2.process_mode = Node.PROCESS_MODE_DISABLED
 	level3.process_mode = Node.PROCESS_MODE_DISABLED
 
@@ -40,8 +43,12 @@ func _process(delta: float) -> void:
 		level3.show()
 		shieldCooler.show()
 		level3.process_mode = Node.PROCESS_MODE_ALWAYS
+		shieldCooler.process_mode = Node.PROCESS_MODE_ALWAYS
+		
+	if shieldProgress.value > 0 and Input.is_action_pressed("shieldActivator"):
 		playerShield.show()
 		playerShield.process_mode = Node.PROCESS_MODE_ALWAYS
-		await get_tree().create_timer(5).timeout
+		shieldCooler.direction = false
 		playerShield.hide()
 		playerShield.process_mode = Node.PROCESS_MODE_DISABLED
+			
