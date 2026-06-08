@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bcl3mghkd3afp"]
+[gd_scene load_steps=14 format=3 uid="uid://bcl3mghkd3afp"]
 
 [ext_resource type="Texture2D" uid="uid://bvrmwkdid0qlb" path="res://Shoot`em Up/Background_Full-0001.png" id="1_3mqji"]
 [ext_resource type="Script" uid="uid://cq88mjg23ref7" path="res://main_scene.gd" id="1_hbc2u"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c0ycf211v0uwn" path="res://level_2.tscn" id="10_p5x2j"]
 [ext_resource type="PackedScene" uid="uid://w1b8b2g2t0wm" path="res://level_3.tscn" id="11_p5x2j"]
 [ext_resource type="PackedScene" uid="uid://bdk7463oqdwna" path="res://shield_cooler.tscn" id="12_yvb8b"]
+[ext_resource type="PackedScene" uid="uid://ch3papccvvy13" path="res://mine.tscn" id="13_3hf6u"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_hbc2u")
@@ -73,3 +74,7 @@ The pawawawawaw shield!"
 
 [node name="ShieldCooler" parent="." instance=ExtResource("12_yvb8b")]
 position = Vector2(26, 580)
+
+[node name="Mine" parent="." instance=ExtResource("13_3hf6u")]
+position = Vector2(465, 547)
+scale = Vector2(2.49, 2.49)

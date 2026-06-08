@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://ch3papccvvy13"]
+
+[ext_resource type="Script" uid="uid://diwdms4lc1pah" path="res://mine.gd" id="1_i6hay"]
+[ext_resource type="Texture2D" uid="uid://drrdptdlqy2uv" path="res://Shoot`em Up/Mine-0001.png" id="2_i213m"]
+[ext_resource type="PackedScene" uid="uid://d37pe5tjcgo6g" path="res://explosion.tscn" id="2_vanlv"]
+[ext_resource type="Script" uid="uid://jx4ey8k6thuc" path="res://Otherdetector.gd" id="4_vanlv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vanlv"]
+atlas = ExtResource("2_i213m")
+region = Rect2(156, 126, 52, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w3yfb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vanlv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2wuje"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w3yfb"]
+radius = 46.400433
+
+[node name="Mine" type="Area2D"]
+collision_layer = 64
+collision_mask = 3
+script = ExtResource("1_i6hay")
+explosionOG = ExtResource("2_vanlv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(6, 3)
+sprite_frames = SubResource("SpriteFrames_w3yfb")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_right = 4.0
+offset_bottom = 27.0
+show_percentage = false
+
+[node name="mine" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2wuje")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 84
+script = ExtResource("4_vanlv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_w3yfb")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]

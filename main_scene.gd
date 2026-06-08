@@ -10,6 +10,7 @@ extends Node2D
 @onready var shieldTimer:Timer = get_node("ShieldCooler/Timer")
 
 var currentLevel = "level1"
+var isShieldOn = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_node("Label1").hide()
@@ -46,9 +47,15 @@ func _process(delta: float) -> void:
 		shieldCooler.process_mode = Node.PROCESS_MODE_ALWAYS
 		
 	if shieldProgress.value > 0 and Input.is_action_pressed("shieldActivator"):
+		isShieldOn = true
+	if shieldProgress.value < 2:
+		isShieldOn = false
+	if isShieldOn == true:
 		playerShield.show()
 		playerShield.process_mode = Node.PROCESS_MODE_ALWAYS
 		shieldCooler.direction = false
+	if isShieldOn == false:
 		playerShield.hide()
+		shieldCooler.direction = true
 		playerShield.process_mode = Node.PROCESS_MODE_DISABLED
 			

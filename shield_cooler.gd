@@ -8,8 +8,7 @@ func _ready():
 	get_node("Timer").start()
 
 func _process(_delta):
-	if progress_bar.value == 0:
-		direction = true
+	pass
 			
 
 func _on_timer_timeout() -> void:
